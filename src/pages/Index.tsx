@@ -6,8 +6,8 @@ const MOVIE_IMG = "https://cdn.poehali.dev/projects/46546d74-b92f-41d6-ba68-0a61
 
 const EPISODES_S1 = [
   { num: 1, title: "Новые герои", vk: "https://vk.com/video_ext.php?oid=-230007325&id=456239199&hd=2&autoplay=0" },
-  { num: 2, title: "Плохая примета" },
-  { num: 3, title: "Лунная гонка" },
+  { num: 2, title: "Плохая примета", vk: "https://vk.com/video_ext.php?oid=-230007325&id=456239198&hd=2&autoplay=0" },
+  { num: 3, title: "Лунная гонка", vk: "https://vk.com/video_ext.php?oid=-230007325&id=456239197&hd=2&autoplay=0" },
   { num: 4, title: "Идеальный друг" },
   { num: 5, title: "Флаг для Генерала" },
   { num: 6, title: "Таинственная коробка" },
