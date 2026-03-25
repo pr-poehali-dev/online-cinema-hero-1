@@ -11,7 +11,9 @@ const EPISODES_S1 = [
   { num: 4, title: "Идеальный друг", vk: "https://vk.com/video_ext.php?oid=-230007325&id=456239194&hd=2&autoplay=0" },
   { num: 5, title: "Флаг для Генерала", vk: "https://vk.com/video_ext.php?oid=-230007325&id=456239195&hd=2&autoplay=0" },
   { num: 6, title: "Таинственная коробка", vk: "https://vk.com/video_ext.php?oid=-230007325&id=456239196&hd=2&autoplay=0" },
-  ...Array.from({ length: 20 }, (_, i) => ({ num: i + 7, title: "Скоро" })),
+  { num: 7, title: "Скоро", vk: "https://vk.com/video_ext.php?oid=-230007325&id=456239193&hd=2&autoplay=0" },
+  { num: 8, title: "Скоро", vk: "https://vk.com/video_ext.php?oid=-230007325&id=456239192&hd=2&autoplay=0" },
+  ...Array.from({ length: 18 }, (_, i) => ({ num: i + 9, title: "Скоро" })),
 ];
 
 const EPISODES_S2 = Array.from({ length: 26 }, (_, i) => ({ num: i + 1, title: "Скоро" }));
@@ -432,7 +434,7 @@ export default function Index() {
                     </div>
                     <Icon name={selectedEpisode === ep.num ? "ChevronUp" : "ChevronDown"} size={20} className="text-gray-400 flex-shrink-0" />
                   </div>
-                  {selectedEpisode === ep.num && ep.title !== "Скоро" && (
+                  {selectedEpisode === ep.num && ep.vk && (
                     <div className="px-4 pb-4">
                       {ep.vk ? (
                         <div className="relative w-full rounded-2xl overflow-hidden" style={{ paddingBottom: "56.25%" }}>
