@@ -5,7 +5,7 @@ const SERIES_IMG = "https://cdn.poehali.dev/projects/46546d74-b92f-41d6-ba68-0a6
 const MOVIE_IMG = "https://cdn.poehali.dev/projects/46546d74-b92f-41d6-ba68-0a61271d4565/files/2d9ebd28-8349-4862-ac1e-efa72924d5b3.jpg";
 
 const EPISODES_S1 = [
-  { num: 1, title: "Новые герои" },
+  { num: 1, title: "Новые герои", vk: "https://vk.com/video_ext.php?oid=-230007325&id=456239199&hd=2&autoplay=0" },
   { num: 2, title: "Плохая примета" },
   { num: 3, title: "Лунная гонка" },
   { num: 4, title: "Идеальный друг" },
@@ -405,31 +405,52 @@ export default function Index() {
             {/* Список серий */}
             <div className="space-y-3">
               {(selectedSeason === 1 ? EPISODES_S1 : EPISODES_S2).map(ep => (
-                <div key={ep.num}
-                  onClick={() => setSelectedEpisode(ep.num === selectedEpisode ? null : ep.num)}
-                  className="flex items-center gap-4 p-4 rounded-2xl cursor-pointer transition-all hover:scale-[1.01] group"
+                <div key={ep.num} className="rounded-2xl overflow-hidden"
                   style={{
                     background: selectedEpisode === ep.num ? "rgba(124,58,237,0.2)" : "#1A1535",
                     border: selectedEpisode === ep.num ? "1px solid rgba(124,58,237,0.5)" : "1px solid rgba(255,255,255,0.06)"
                   }}>
-                  <div className="w-28 h-16 rounded-xl overflow-hidden flex-shrink-0 relative">
-                    <img src={SERIES_IMG} className="w-full h-full object-cover" alt={ep.title} />
-                    <div className={`absolute inset-0 bg-black/30 flex items-center justify-center transition-opacity ${selectedEpisode === ep.num ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
-                      <div className="w-8 h-8 rounded-full bg-white/90 flex items-center justify-center">
-                        <Icon name="Play" size={14} className="text-purple-700" />
+                  <div
+                    onClick={() => setSelectedEpisode(ep.num === selectedEpisode ? null : ep.num)}
+                    className="flex items-center gap-4 p-4 cursor-pointer transition-all hover:scale-[1.01] group">
+                    <div className="w-28 h-16 rounded-xl overflow-hidden flex-shrink-0 relative">
+                      <img src={SERIES_IMG} className="w-full h-full object-cover" alt={ep.title} />
+                      <div className={`absolute inset-0 bg-black/30 flex items-center justify-center transition-opacity ${selectedEpisode === ep.num ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+                        <div className="w-8 h-8 rounded-full bg-white/90 flex items-center justify-center">
+                          <Icon name="Play" size={14} className="text-purple-700" />
+                        </div>
                       </div>
                     </div>
+                    <div className="flex-1">
+                      <p className="text-gray-400 text-xs mb-1">Сезон {selectedSeason} • Серия {ep.num}</p>
+                      <p className="text-white font-bold">{ep.title}</p>
+                      {ep.title === "Скоро" ? (
+                        <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-bold" style={{ background: "rgba(252,211,77,0.2)", color: "#FCD34D" }}>Скоро</span>
+                      ) : (
+                        <p className="text-gray-400 text-xs mt-1">12 мин</p>
+                      )}
+                    </div>
+                    <Icon name={selectedEpisode === ep.num ? "ChevronUp" : "ChevronDown"} size={20} className="text-gray-400 flex-shrink-0" />
                   </div>
-                  <div className="flex-1">
-                    <p className="text-gray-400 text-xs mb-1">Сезон {selectedSeason} • Серия {ep.num}</p>
-                    <p className="text-white font-bold">{ep.title}</p>
-                    {ep.title === "Скоро" ? (
-                      <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-bold" style={{ background: "rgba(252,211,77,0.2)", color: "#FCD34D" }}>Скоро</span>
-                    ) : (
-                      <p className="text-gray-400 text-xs mt-1">12 мин</p>
-                    )}
-                  </div>
-                  <Icon name={selectedEpisode === ep.num ? "ChevronUp" : "ChevronDown"} size={20} className="text-gray-400 flex-shrink-0" />
+                  {selectedEpisode === ep.num && ep.title !== "Скоро" && (
+                    <div className="px-4 pb-4">
+                      {ep.vk ? (
+                        <div className="relative w-full rounded-2xl overflow-hidden" style={{ paddingBottom: "56.25%" }}>
+                          <iframe
+                            src={ep.vk}
+                            className="absolute inset-0 w-full h-full"
+                            style={{ border: "none" }}
+                            allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                            allowFullScreen
+                          />
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-center py-8 rounded-2xl" style={{ background: "rgba(255,255,255,0.05)" }}>
+                          <p className="text-gray-400 text-sm">Видео скоро появится</p>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
