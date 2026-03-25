@@ -4,14 +4,23 @@ import Icon from "@/components/ui/icon";
 const SERIES_IMG = "https://cdn.poehali.dev/projects/46546d74-b92f-41d6-ba68-0a61271d4565/files/ce7f7e77-dd0f-4b33-bf31-45f2cffb69f4.jpg";
 const MOVIE_IMG = "https://cdn.poehali.dev/projects/46546d74-b92f-41d6-ba68-0a61271d4565/files/2d9ebd28-8349-4862-ac1e-efa72924d5b3.jpg";
 
-const EPISODES = [
+const EPISODES_S1 = [
   { num: 1, title: "Новые герои" },
   { num: 2, title: "Плохая примета" },
   { num: 3, title: "Лунная гонка" },
   { num: 4, title: "Идеальный друг" },
   { num: 5, title: "Флаг для Генерала" },
   { num: 6, title: "Таинственная коробка" },
+  { num: 7, title: "Скоро" },
+  { num: 8, title: "Скоро" },
+  { num: 9, title: "Скоро" },
+  { num: 10, title: "Скоро" },
+  { num: 11, title: "Скоро" },
+  { num: 12, title: "Скоро" },
+  { num: 13, title: "Скоро" },
 ];
+
+const EPISODES_S2 = Array.from({ length: 13 }, (_, i) => ({ num: i + 1, title: "Скоро" }));
 
 const TV_CHANNELS = [
   { id: 1, name: "Карусель", emoji: "🎠", color: "#FF6B6B" },
@@ -401,7 +410,7 @@ export default function Index() {
 
             {/* Список серий */}
             <div className="space-y-3">
-              {EPISODES.map(ep => (
+              {(selectedSeason === 1 ? EPISODES_S1 : EPISODES_S2).map(ep => (
                 <div key={ep.num}
                   onClick={() => setSelectedEpisode(ep.num === selectedEpisode ? null : ep.num)}
                   className="flex items-center gap-4 p-4 rounded-2xl cursor-pointer transition-all hover:scale-[1.01] group"
@@ -420,7 +429,11 @@ export default function Index() {
                   <div className="flex-1">
                     <p className="text-gray-400 text-xs mb-1">Сезон {selectedSeason} • Серия {ep.num}</p>
                     <p className="text-white font-bold">{ep.title}</p>
-                    <p className="text-gray-400 text-xs mt-1">12 мин</p>
+                    {ep.title === "Скоро" ? (
+                      <span className="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-bold" style={{ background: "rgba(252,211,77,0.2)", color: "#FCD34D" }}>Скоро</span>
+                    ) : (
+                      <p className="text-gray-400 text-xs mt-1">12 мин</p>
+                    )}
                   </div>
                   <Icon name={selectedEpisode === ep.num ? "ChevronUp" : "ChevronDown"} size={20} className="text-gray-400 flex-shrink-0" />
                 </div>
