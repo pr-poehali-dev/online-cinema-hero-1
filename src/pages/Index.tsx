@@ -8,9 +8,9 @@ const EPISODES_S1 = [
   { num: 1, title: "Новые герои", vk: "https://vk.com/video_ext.php?oid=-230007325&id=456239199&hd=2&autoplay=0" },
   { num: 2, title: "Плохая примета", vk: "https://vk.com/video_ext.php?oid=-230007325&id=456239198&hd=2&autoplay=0" },
   { num: 3, title: "Лунная гонка", vk: "https://vk.com/video_ext.php?oid=-230007325&id=456239197&hd=2&autoplay=0" },
-  { num: 4, title: "Идеальный друг" },
-  { num: 5, title: "Флаг для Генерала" },
-  { num: 6, title: "Таинственная коробка" },
+  { num: 4, title: "Идеальный друг", vk: "https://vk.com/video_ext.php?oid=-230007325&id=456239194&hd=2&autoplay=0" },
+  { num: 5, title: "Флаг для Генерала", vk: "https://vk.com/video_ext.php?oid=-230007325&id=456239195&hd=2&autoplay=0" },
+  { num: 6, title: "Таинственная коробка", vk: "https://vk.com/video_ext.php?oid=-230007325&id=456239196&hd=2&autoplay=0" },
   ...Array.from({ length: 20 }, (_, i) => ({ num: i + 7, title: "Скоро" })),
 ];
 
