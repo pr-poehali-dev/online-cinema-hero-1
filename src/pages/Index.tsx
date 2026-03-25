@@ -11,16 +11,10 @@ const EPISODES_S1 = [
   { num: 4, title: "Идеальный друг" },
   { num: 5, title: "Флаг для Генерала" },
   { num: 6, title: "Таинственная коробка" },
-  { num: 7, title: "Скоро" },
-  { num: 8, title: "Скоро" },
-  { num: 9, title: "Скоро" },
-  { num: 10, title: "Скоро" },
-  { num: 11, title: "Скоро" },
-  { num: 12, title: "Скоро" },
-  { num: 13, title: "Скоро" },
+  ...Array.from({ length: 20 }, (_, i) => ({ num: i + 7, title: "Скоро" })),
 ];
 
-const EPISODES_S2 = Array.from({ length: 13 }, (_, i) => ({ num: i + 1, title: "Скоро" }));
+const EPISODES_S2 = Array.from({ length: 26 }, (_, i) => ({ num: i + 1, title: "Скоро" }));
 
 const TV_CHANNELS = [
   { id: 1, name: "Карусель", emoji: "🎠", color: "#FF6B6B" },
