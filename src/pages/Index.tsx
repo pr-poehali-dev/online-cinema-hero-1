@@ -230,7 +230,7 @@ export default function Index() {
                 <span>🎬</span> Продолжить просмотр
               </h2>
               <div className="flex gap-4 overflow-x-auto pb-2">
-                {EPISODES.slice(0, 4).map(ep => (
+                {EPISODES_S1.slice(0, 4).map(ep => (
                   <div key={ep.num} className="flex-shrink-0 w-52 rounded-2xl overflow-hidden cursor-pointer group transition-transform hover:scale-105"
                     style={{ background: "#1A1535" }}
                     onClick={() => { setSelectedEpisode(ep.num); setShowSerialDetail(true); setActiveTab("serials"); }}>
