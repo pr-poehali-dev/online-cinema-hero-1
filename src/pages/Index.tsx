@@ -503,20 +503,32 @@ export default function Index() {
                     <p className="text-gray-300 text-sm leading-relaxed max-w-2xl">
                       Рома планирует выступить на школьном конкурсе и показать огромный звездолёт, собранный из конструктора. Игрушка тут же привлекает внимание непрошеных гостей — таинственных космических пиратов. Друзьям Ромы — Пинки, Бублику, Генералу Де Кролю, Флаю, Глории, Ко-Ко и ящерице-ниндзя О-Раш — предстоит сразиться с пришельцами, проверить дружбу на прочность и поразмышлять о взаимопомощи, смелости и умении прощать.
                     </p>
-                    <div className="flex gap-3 flex-wrap">
-                      <button className="flex items-center gap-2 px-8 py-3 rounded-2xl font-bold text-white transition-all hover:scale-105"
-                        style={{ background: "linear-gradient(135deg, #7C3AED, #EC4899)", boxShadow: "0 4px 20px rgba(124,58,237,0.4)" }}>
-                        <Icon name="Play" size={18} />
-                        Смотреть фильм
-                      </button>
                       <button className="flex items-center gap-2 px-6 py-3 rounded-2xl font-bold transition-all hover:scale-105"
                         style={{ background: "rgba(255,255,255,0.1)", color: "white", border: "1px solid rgba(255,255,255,0.2)" }}>
                         <Icon name="Heart" size={18} />
                         В избранное
                       </button>
-                    </div>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Плеер */}
+            <div className="rounded-3xl overflow-hidden" style={{ background: "#1A1535" }}>
+              <div className="p-4 pb-0">
+                <h2 className="font-fredoka text-xl text-white mb-3 flex items-center gap-2">
+                  <Icon name="Play" size={20} />
+                  Смотреть фильм
+                </h2>
+              </div>
+              <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                <iframe
+                  src="https://vk.com/video_ext.php?oid=791264953&id=456241390&hd=2&autoplay=0"
+                  className="absolute inset-0 w-full h-full"
+                  style={{ border: "none" }}
+                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
             </div>
           </div>
